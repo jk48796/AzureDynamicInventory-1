@@ -7,6 +7,9 @@ https://faun.pub/lets-do-devops-dynamic-host-inventories-in-azure-on-ansible-awx
 To Do:
 Haven't figured out how to get it to pull in stopped (deallocated) VMs. Tried removing below from the inventory playbook but it still skips them.
 
+exclude_host_filters:
+- powerstate != 'running'
+
 Usage:
 Credentials, Project, & Inventory
 1. Add credentials
@@ -39,8 +42,9 @@ Use JOP TYPE to specify --check, run, scan
 Running the template/playbook:
 Templates > select the template > launch
 
-Using this as a test playbook: (use hosts: all and have the template do overrides with --limit)
-/AzureDynamicInventory/blob/master/playbooks/Test.yml
+Using /AzureDynamicInventory/blob/master/playbooks/Test.yml 
+Use hosts: all and have the template override with LIMIT
+
 ---
 - name: Test the inventory script
   hosts: all
