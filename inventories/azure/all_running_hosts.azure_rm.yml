@@ -1,3 +1,3 @@
 plugin: azure_rm
 auth_source: auto
-plain_host_names: no
+plain_host_names: yes
