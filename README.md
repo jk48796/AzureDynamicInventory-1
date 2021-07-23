@@ -38,3 +38,13 @@ Use JOP TYPE to specify --check, run, scan
 
 Running the template/playbook:
 Templates > select the template > launch
+
+Using this as a test playbook: (use hosts: all and have the template do overrides with --limit)
+/AzureDynamicInventory/blob/master/playbooks/Test.yml
+---
+- name: Test the inventory script
+  hosts: all
+  connection: local
+  gather_facts: no
+  tasks:
+    - debug: msg="{{ inventory_hostname }} has powerstate {{ powerstate }}"
