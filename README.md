@@ -18,3 +18,11 @@ Templates
 Create template that references the AWX/Tower project, inventory, playbook, and credentials.
 Use LIMIT like you would with --limit to specify the host(s), group(s) to run against
 Use JOP TYPE to specify --check, run, scan
+
+
+
+To Do:
+Haven't figured out how to get it to pull in stopped (deallocated) VMs. Tried removing below from the inventory playbook but it still skips them.
+
+exclude_host_filters:
+- powerstate != 'running'
